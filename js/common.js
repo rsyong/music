@@ -26,8 +26,18 @@ function onPlusReady(){
 			open("../../page/my/zh.html",this.id)
 		}else if(this.id=="index1"){
 			open("../../page/home/index.html",this.id)
+		}else if(this.id=="index2"){
+			open("../../page/home/index.html",this.id)
+		}else if(this.id=="index3"){
+			open("../../page/friends/friends.html",this.id)
 		}
 		
+	})
+	mui("div").on("tap",".open",function(e){
+		e.stopPropagation();
+		var ur=this.getAttribute("data-url");
+		var id=this.getAttribute("data-id");
+		plus.webview.create(ur,id).show('slide-in-right', 200)
 	})
 	function open(myurl,id){
 		mui.openWindow({
@@ -58,7 +68,7 @@ function onPlusReady(){
 		
 	})
 	mui('.mui-scroll-wrapper').scroll({
-		
+		deceleration:0.0006, //阻尼系数,系数越小滑动越灵敏
 	});
 	document.addEventListener("splashclosed", onSplashClosed, false);
 	function onSplashClosed(){

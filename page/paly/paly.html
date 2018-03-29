@@ -77,7 +77,7 @@
 			{title:'在心里从此永远有个你',url:'../../mp3/zxliccygn.mp3',name:'办桌二人组'},
 		];
 		var page=localStorage.page || 0;
-		var num,miao,time,n,m,player=null;
+		var num,miao,time,n,m,player,ispaly=null;
 		var tp3=document.querySelector(".tp3");
 		var mp3={
 			init:function(){
@@ -98,14 +98,18 @@
 			},
 			toPlay:function(){
 				tp3.src="../../image/play3.png";
-				player.play(function(){
-					tp3.src="../../image/play1.png";
-					player.stop();
-					tp3.title="false";
-					mp3.next();
-				},function (e) {
-					mui.toast("播放出错"+e.message);
-				});
+				if(ispaly=="false"){
+					player.resume();
+				}else{
+					player.play(function(){
+						tp3.src="../../image/play1.png";
+						player.stop();
+						tp3.title="false";
+						mp3.next();
+					},function (e) {
+						mui.toast("播放出错"+e.message);
+					});
+				}
 				time=setInterval(function(){
 					n++;
 					if(n<10){
@@ -119,6 +123,7 @@
 					mui("#demo1").progressbar().setProgress(m);
 				},1000)
 				tp3.title="true";
+				ispaly="false";
 			},
 			next:function(){
 				page++;
