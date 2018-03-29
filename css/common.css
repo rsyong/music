@@ -1,0 +1,111 @@
+*{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	color: #333;
+}
+.mui-scroll{
+	padding: 10px;
+	box-sizing: border-box;
+}
+.flex{
+	display: flex;
+	flex: 1;
+}
+.flex1{
+	flex: 1;
+}
+.flex2{
+	flex: 2;
+}
+.seach{
+	padding: 0 15px;
+}
+.just-center{
+	justify-content: center;
+}
+.just-around{
+	justify-content: space-around;
+}
+.just-between{
+	justify-content: space-between;
+}
+.align-center{
+	align-items: center;
+}
+.left_nav{
+	line-height: 34px;
+	height: 34px;
+	text-indent: 15px;
+	font-size: 20px;
+	border-left: 6px solid #F59947;
+	margin-bottom: 15px;
+}
+.mb-15{
+	margin-bottom: 15px;
+}
+.mt-15{
+	margin-top: 15px;
+}
+.ml-15{
+	margin-left: 15px;
+}
+.mr-15{
+	margin-right: 15px;
+}
+.width-100{
+	width: 100%;
+}
+.color-hui{
+	color: #686565;
+}
+.hover:active{
+	background: rgba(0,0,0,0.1);
+}
+.flex-wrap{
+	flex-wrap: wrap;
+}
+footer{
+	position: fixed;
+	height: 55px;
+	width: 100%;
+	bottom: 0;
+	left: 0;
+	background: #D7D5D6;
+}
+.footer_menu>div{
+	width: 25%;
+	text-align: center;
+	padding-top: 8px;
+}
+.footer_menu>div img{
+	width: 25px;
+}
+.mui-slider-indicator {
+    bottom: 16px;
+}
+.mui-slider-indicator .mui-indicator{
+	background: rgba(255,255,255,.5);
+}
+.mui-slider-indicator .mui-active.mui-indicator{
+	background: #F49948;
+}
+.mui-bar{
+	background: #D8D6D6;
+}
+.mui-bar .mui-icon{
+	color: #707070;
+}
+.mui-title{
+	font-weight: 400;
+}
+.mui-pull-right img{
+	height: 25px;
+	position: relative;
+	top: 8px;
+	right: 10px;
+}
+.right_sj{
+	font-size: 35px;
+	color: #717171;
+}

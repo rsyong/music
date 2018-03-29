@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../css/mui.min.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+    	.mui-scroll{top: 44px;}
+    	.logo{vertical-align: middle;width: 25px;}
+    	.my_list{font-size: 18px;}
+    	.my_list li{padding: 10px;box-sizing: border-box;}
+    	.my_list li:active{background: rgba(0,0,0,.1);}
+    	.gd_logo{width: 80px;height: 80px;}
+    	.right{flex-direction: column;justify-content: space-around;}
+    	.label_div{background: #8ECAEC;font-size: 14px;width: 23%;text-align: center;border-radius: 22px;color: #fff;padding: 4px 0;}
+    	.list{width: 49%;margin-bottom: 15px;}
+    	.list img{width: 100%;}
+    	.list:nth-child(2n-1){margin-right: 2%;}
+    	.mui-scroll-wrapper{bottom: 55px;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">我的</h1>
+	    <a class="mui-pull-right play"><img src="../../image/right_top.png"/></a>
+	</header>
+	<div class="mui-content">
+		<div class="mui-scroll-wrapper">
+		    <div class="mui-scroll">
+		    	<!--列表-->
+		    	<ul class="my_list mb-15">
+		    		<li class="flex just-between">
+		    			<div class="flex1 align-center"><img class="logo" src="../../image/Folder.png"/><span class="ml-15">本地歌曲</span></div>
+		    			<div><img class="logo" src="../../image/play.png"/></div>
+		    		</li>
+		    		<li class="flex just-between">
+		    			<div class="flex1 align-center"><img class="logo" src="../../image/clock.png"/><span class="ml-15">最近播放</span></div>
+		    			<div><img class="logo" src="../../image/play.png"/></div>
+		    		</li>
+		    		<li class="flex just-between">
+		    			<div class="flex1 align-center"><img class="logo" src="../../image/love.png"/><span class="ml-15">我的收藏</span></div>
+		    			<div><img class="logo" src="../../image/play.png"/></div>
+		    		</li>
+		    	</ul>
+		    	<!--导航-->
+				<div class="left_nav">我的歌单</div>
+				<!--歌单-->
+				<ul class="gd_ul">
+					<li class="flex just-between mb-15">
+						<div class="gd_logo mr-15"><img class="width-100" src="../../image/gedan1.png"/></div>
+						<div class="flex right">
+							<div class="color-hui">for myself</div>
+							<div class="color-hui">9 首</div>
+						</div>
+					</li>
+					<li class="flex just-between mb-15">
+						<div class="gd_logo mr-15"><img class="width-100" src="../../image/gedan2.png"/></div>
+						<div class="flex right">
+							<div class="color-hui">for tomorrow</div>
+							<div class="color-hui">21 首</div>
+						</div>
+					</li>
+				</ul>
+				<!--导航-->
+				<div class="left_nav">推荐歌单</div>
+				<div class="label mb-15">
+					<div class="flex">
+						<div class="flex just-between mr-15">
+							<div class="label_div">全部分类</div>
+							<div class="label_div">工作</div>
+							<div class="label_div">心情</div>
+							<div class="label_div">安静</div>
+						</div>
+						<div style="width: 30px;"><img class="width-100" src="../../image/morn.png"/></div>
+					</div>
+				</div>
+				<!--list-->
+				<div class="flex mb-15" style="flex-wrap: wrap;">
+					<div class="list"><img src="../../image/list1.png"/></div>
+					<div class="list"><img src="../../image/list2.png"/></div>
+					<div class="list"><img src="../../image/list3.png"/></div>
+					<div class="list"><img src="../../image/list4.png"/></div>
+				</div>
+		    </div>
+		</div>
+	</div>
+	<footer id="4"></footer>
+</body>
+<script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" charset="utf-8">
+  	
+</script>
+</html>

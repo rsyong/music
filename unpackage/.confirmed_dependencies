@@ -1,0 +1,107 @@
+{
+  "page/paly/paly.html": {
+    "href": "page/paly/paly.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/common.js",
+      "image/play1.png",
+      "mp3/hao.mp3",
+      "image/play3.png",
+      "css/mui.min.css",
+      "css/common.css",
+      "image/share.png",
+      "image/person.png",
+      "image/Collection2.png",
+      "image/downlowd.png",
+      "image/comment.png",
+      "image/morn.png",
+      "image/round.png",
+      "image/thelast.png",
+      "image/next.png",
+      "image/sheet.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "page/my/index.html": {
+    "href": "page/my/index.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/common.js",
+      "css/mui.min.css",
+      "css/common.css",
+      "image/right_top.png",
+      "image/list1.png",
+      "image/list2.png",
+      "image/list3.png",
+      "image/list4.png",
+      "image/Folder.png",
+      "image/play.png",
+      "image/clock.png",
+      "image/love.png",
+      "image/gedan1.png",
+      "image/gedan2.png",
+      "image/morn.png"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "page/my/zh.html": {
+    "href": "page/my/zh.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/common.js",
+      "css/mui.min.css",
+      "css/common.css",
+      "image/email.png",
+      "image/setting.png",
+      "image/touxiang.png",
+      "image/menu1.png",
+      "image/menu2.png",
+      "image/menu3.png",
+      "image/downlowd.png",
+      "image/menu5.png",
+      "image/menu6.png"
+    ],
+    "refer": [
+      "page/my/index.html"
+    ],
+    "priority": 0
+  },
+  "page/home/index.html": {
+    "href": "page/home/index.html",
+    "resources": [
+      "js/mui.min.js",
+      "js/common.js",
+      "image/bt2_2.png",
+      "image/bt4.png",
+      "image/bt2.png",
+      "image/bt3.png",
+      "image/bt3_3.png",
+      "image/bt4_4.png",
+      "image/bt1_1.png",
+      "css/mui.min.css",
+      "css/common.css",
+      "image/right_top.png",
+      "image/list/brother.png",
+      "image/list/NAV1.png",
+      "image/list/NAV2.png",
+      "image/list/NAV3.png",
+      "image/list/NAV4.png",
+      "image/list/NAV5.png",
+      "image/img1.png",
+      "image/img2.png",
+      "image/img3.png",
+      "image/img4.png",
+      "image/banner/banner3.png",
+      "image/banner/banner1.png",
+      "image/banner/banner2.png"
+    ],
+    "refer": [
+      "page/paly/paly.html",
+      "page/home/index.html",
+      "page/my/zh.html"
+    ],
+    "priority": 0
+  }
+}
