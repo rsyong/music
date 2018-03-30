@@ -16,7 +16,6 @@
     	.list{width: 31%;margin-bottom: 15px;}
     	.list img{width: 100%;}
     	.list:nth-child(3n-1){margin: 0 3%;}
-    	.mui-scroll-wrapper{bottom: 55px;}
     </style>
 </head>
 <body>
@@ -28,7 +27,7 @@
 		        	<div class="mui-input-row mui-search" style="width: 100%;">
 					    <input type="search" class="mui-input-clear" placeholder="请输入歌曲、歌词、歌曲">
 					</div>
-		        	<div class="right_top play"><img src="../../image/right_top.png"/></div>
+		        	<div class="right_top play"><img src="../../image/right_top2.png"/></div>
 		        </div>
 		        <!--轮播-->
 		        <div class="mui-slider">
@@ -79,14 +78,12 @@
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
 <script type="text/javascript" charset="utf-8">
-  	mui.init({
-  		statusBarBackground: '#D8D6D6',
-  	});
   	mui.plusReady(function(){
   		var gallery = mui('.mui-slider');
 		gallery.slider({
 		  interval:4000//自动轮播周期，若为0则不自动播放，默认为0；
 		});
+		plus.navigator.setStatusBarStyle('light');
   	})
   	
 </script>

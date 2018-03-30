@@ -7,28 +7,34 @@
     <link rel="stylesheet" href="../../css/mui.min.css" />
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
-    	.mui-scroll{top: 44px;padding-bottom: 40px;}
-    	.mui-scroll-wrapper{bottom: 55px;}
+    	.mui-scroll{top: 100px;padding-bottom: 100px;}
     	.mui-pull-left img{height: 25px;position: relative;top: 8px;left: 10px;}
-    	.list_ul li{padding: 5px 0;}
+    	.list_ul li{padding: 15px;box-sizing: border-box;margin-bottom: 15px;border-radius: 6px;}
+    	.list_ul li:nth-child(1){background: #FFF3E2;}
+    	.list_ul li:nth-child(2){background: pink;}
     	.user_img{width: 45px;height: 45px;margin-right: 5px;}
     	.user_img img{width: 100%;height: 100%;border-radius: 50%;}
-    	.gz{width: 66px;height: 28px;margin-left: 5px;background: #F87E11;color: #fff;text-align: center;line-height: 28px;border-radius: 14px;margin-top: 6px;}
-    	.wid{width: 32%;}
-    	.wid:nth-child(3n-1){margin: 0 1%;}
+    	.gz{width: 70px;height: 28px;margin-left: 5px;background: #FF6D6E;color: #fff;text-align: center;line-height: 28px;border-radius: 14px;margin-top: 6px;font-size: 14px;}
+    	.wid{width: 100%;}
     	.fb_title{margin: 5px 0;}
-    	.logos{width: 45px;height: 45px;position: relative;margin-right: 5px;}
+    	.logos{width: 50px;height: 50px;position: relative;margin-right: 5px;}
     	.logos img{width: 100%;height: 100%;}
-    	.li{background: gainsboro;padding: 5px;box-sizing: border-box;}
+    	.li{background: #FAA048;padding: 5px;box-sizing: border-box;border-radius: 6px;box-shadow: 0 0 4px 1px #E8C7A5;position: relative;margin-top: 3px;}
+    	.li *{color: #fff;}
     	.pp{position: absolute;width: 35px !important;height: 35px !important;left: 5px;top: 5px;}
     	.smll{width: 18px;margin-right: 5px;vertical-align: top;}
-    	.logo2{width: 25px;margin-right: 10px;vertical-align: bottom;}
-    	.swip{width: 78px;height: 30px;display: inline-block;background: #C6C0C0;color: #fff;line-height: 30px;border-radius: 14px;border: 1px solid #F6F5F3;}
-    	.swip_active{background: #F87E11;border: 1px solid #F87E11;position: relative;left: 20px;}
+    	.logo2{width: 100px;position: relative;top: 5px;}
+    	.swip{width: 90px;display: inline-block;background: #FF6D6E;color: #fff;line-height: 30px;border-radius: 20px;border: 1px solid #F6F5F3;text-indent: 15px;}
+    	.swip_active{background: #fff;border: 1px solid #fff;position: relative;left: 30px;color: #FF6D6D;width: 70px;text-indent: 0px;}
     	.liner{position: absolute;width: calc(100% + 20px);height: 1px;background: #DCDADB;bottom: 0;left: -10px;}
+    	.top_nav{position: relative;padding: 6px 0;background: #68BEFB;border-radius: 6px;width: 80%;margin: 10px auto;}
+    	.right_p{width: 62px;background: #5DD454;position: absolute;top: 0;height: 60px;right: 0;border-bottom-right-radius: 6px;border-top-right-radius: 6px;padding: 15px;box-sizing: border-box;}
+    	.width-120{width: 120%;}
+    	.mui-bar-nav{box-shadow: none;}
+    	.df{height: 45px;background: #FF6E6E;position: fixed;width: 100%;top: 44px;left: 0;z-index: 100;}
     </style>
 </head>
-<body>
+<body style="background: #fff;">
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-pull-left"><img src="../../image/addfirends.png"/></a>
 	    <h1 class="mui-title">
@@ -37,13 +43,14 @@
 	    <a class="mui-pull-right play"><img src="../../image/right_top.png"/></a>
 	</header>
 	<div class="mui-content">
+		<div class="df">
+			<div class="flex just-around top_nav">
+	    		<div class="hover flex1 mui-text-center" style="border-right: 2px solid #B2DFFE;"><img class="logo2" src="../../image/addjia.png"/></div>
+	    		<div class="hover flex1 mui-text-center"><img class="logo2" src="../../image/wirt.png"/></div>
+	    	</div>
+		</div>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
-		    	<div class="flex just-around" style="position: relative;padding-bottom: 12px;margin-bottom: 5px;">
-		    		<div class="hover"><img class="logo2" src="../../image/addjia.png" style="position: relative;top:3px;"/>添加动态</div>
-		    		<div class="hover"><img class="logo2" src="../../image/wirt.png"/>写故事</div>
-		    		<div class="liner"></div>
-		    	</div>
 		    	<ul class="list_ul">
 		    		<li class="flex">
 		    			<div class="user_img"><img src="../../image/tx.png"/></div>
@@ -55,24 +62,20 @@
 			    						<div style="font-size: 12px;color: #AFAFB1;">最近</div>
 			    						<div class="fb_title">伟大的渺小。</div>
 			    						<div class="flex flex-wrap">
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
+				    						<div class="wid"><img class="width-120" src="../../image/fb.png"/></div>
 				    					</div>
 			    					</div>
-			    					<div class="gz hover">+关注</div>
+			    					<div class="gz hover">已关注</div>
 		    					</div>
 		    				</div>
 		    				<div class="flex1">
 		    					<div class="flex li hover">
 		    						<div class="logos"><img src="../../image/img5.png"/><img class="pp" src="../../image/pp.png"/></div>
-		    						<div class="flex1" style="margin-top: 2px;">
+		    						<div class="flex1" style="margin-top: 4px;">
 		    							<div>伟大的渺小</div>
-		    							<div style="font-size: 14px;color: #828284;">林俊杰</div>
+		    							<div style="font-size: 14px;">林俊杰</div>
 		    						</div>
+		    						<div class="right_p"><img class="width-100" src="../../image/play4.png"/></div>
 		    					</div>
 		    					<div class="flex just-between mt-15">
 		    						<div class="color-hui"><img class="smll" src="../../image/zan.png"/>896</div>
@@ -84,7 +87,7 @@
 		    			</div>
 		    		</li>
 		    		<li class="flex">
-		    			<div class="user_img"><img src="../../image/tx.png"/></div>
+		    			<div class="user_img"><img src="../../image/tx2.png"/></div>
 		    			<div class="flex1">
 		    				<div class="flex1">
 		    					<div class="flex">
@@ -93,15 +96,10 @@
 			    						<div style="font-size: 12px;color: #AFAFB1;">最近</div>
 			    						<div class="fb_title">伟大的渺小。</div>
 			    						<div class="flex flex-wrap">
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
-				    						<div class="wid"><img class="width-100" src="../../image/fb.png"/></div>
+				    						<div class="wid"><img class="width-120" src="../../image/fb.png"/></div>
 				    					</div>
 			    					</div>
-			    					<div class="gz hover">+关注</div>
+			    					<div class="gz hover">已关注</div>
 		    					</div>
 		    				</div>
 		    				<div class="flex1">
@@ -111,6 +109,7 @@
 		    							<div>伟大的渺小</div>
 		    							<div style="font-size: 14px;color: #828284;">林俊杰</div>
 		    						</div>
+		    						<div class="right_p"><img class="width-100" src="../../image/play4.png"/></div>
 		    					</div>
 		    					<div class="flex just-between mt-15">
 		    						<div class="color-hui"><img class="smll" src="../../image/zan.png"/>896</div>

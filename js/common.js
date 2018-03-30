@@ -53,20 +53,22 @@ function onPlusReady(){
 		    },
 		})
 	}
-	var w=null;
 	mui("body").on("tap",".play",function(e){
 		e.stopPropagation();
 		if(localStorage.isOpen=="true"){
-			console.log(12)
 			w=plus.webview.show("play");
 		}else{
-			console.log(13)
 			localStorage.isOpen="true";
 			w=plus.webview.create("../../page/paly/paly.html","play");
 			w.show('slide-in-bottom', 200);
 		}
 		
 	})
+	//初始化
+	mui.init({
+  		statusBarBackground: '#FF6E6E',
+  		swipeBack:true 
+  	});
 	mui('.mui-scroll-wrapper').scroll({
 		deceleration:0.0006, //阻尼系数,系数越小滑动越灵敏
 	});

@@ -59,6 +59,9 @@
 .color-hui{
 	color: #686565;
 }
+.hover{
+	transition: 150ms;
+}
 .hover:active{
 	background: rgba(0,0,0,0.1);
 }
@@ -71,7 +74,9 @@ footer{
 	width: 100%;
 	bottom: 0;
 	left: 0;
-	background: #D7D5D6;
+	background: #FF6E6E;
+	background: rgba(222,89,90,0.9);
+	z-index: 100;
 }
 .footer_menu>div{
 	width: 25%;
@@ -90,14 +95,18 @@ footer{
 .mui-slider-indicator .mui-active.mui-indicator{
 	background: #F49948;
 }
+.mui-scroll-wrapper{
+	padding-bottom: 55px;
+}
 .mui-bar{
-	background: #D8D6D6;
+	background: #FF6E6E;
 }
 .mui-bar .mui-icon{
-	color: #707070;
+	color: #fff;
 }
 .mui-title{
 	font-weight: 400;
+	color: #fff;
 }
 .mui-pull-right img{
 	height: 25px;
