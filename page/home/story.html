@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
     	.mui-scroll{top: 44px;padding-bottom: 40px;}
+    	.right{float: right;width: 30px;margin-right: 10px;margin-top: 20px;}
+    	.left_nav{position: relative;}
+    	.xf{position: absolute;right: 10px;width: 100px;line-height: 36px;background: #eee;text-align: center;padding: 10px 0;border: 1px solid #D7D7D7;text-indent:0;font-size: 16px;top: 50px;display: none;}
     </style>
 </head>
 <body>
@@ -28,7 +31,14 @@
 					<div class="flex1" style="margin-left: 10px;"><img class="width-100" src="../../image/add.png"/></div>
 				</div>
 				<!--导航-->
-				<div class="left_nav mb-15">精选</div>
+				<div class="left_nav mb-15">精选
+					<img class="right" src="../../image/morn.png"/>
+					<ul class="xf">
+						<li>最新</li>
+						<li>最热</li>
+						<li>分类</li>
+					</ul>
+				</div>
 				<div class="mb-15">
 					<div><img class="width-100" src="../../image/s1.png"/></div>
 					<div><img class="width-100" src="../../image/s2.png"/></div>
@@ -41,8 +51,12 @@
 	<footer id="1"></footer>
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
 <script type="text/javascript" charset="utf-8">
-  	
+  	$(".right").on("touchstart",function(e){
+  		e.stopPropagation();
+  		$(".xf").slideToggle(200);
+  	})
 </script>
 </html>

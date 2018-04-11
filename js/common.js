@@ -27,13 +27,13 @@ function onPlusReady(){
 		}else if(this.id=="index1"){
 			open("../../page/home/index.html",this.id)
 		}else if(this.id=="index2"){
-			open("../../page/home/index.html",this.id)
+			open("../../page/find/find.html",this.id)
 		}else if(this.id=="index3"){
 			open("../../page/friends/friends.html",this.id)
 		}
 		
 	})
-	mui("div").on("tap",".open",function(e){
+	mui("body,div").on("tap",".open",function(e){
 		e.stopPropagation();
 		var ur=this.getAttribute("data-url");
 		var id=this.getAttribute("data-id");
