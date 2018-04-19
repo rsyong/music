@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../css/mui.min.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+    	.mui-scroll{top: 44px;padding-bottom: 40px;}
+    	.sxt{padding: 10px;box-sizing: border-box;background: #FFD2E6;color: #B5357D;border-radius: 5px;}
+    	.sxt *{color: #BA4286;}
+    	.sxt_list{width: 32%;}
+    	.sxt_list:nth-child(3n-1){margin: 0 2%;}
+    	.sxt_title{font-size: 20px;margin-bottom: 10px;}
+    	.sm_font{font-size: 14px;}
+    	.my_riado{background: #FFF8CE;padding: 10px;box-sizing: border-box;border-radius: 5px;min-height: 85vw;}
+    	.my_riado *{color: #E87005;}
+    	.change{position: absolute;width: 100%;bottom: 0;background: #fff;border-radius: 5px;height:0;}
+    	.change_title{line-height: 48px;border-bottom: 1px solid #CECECE;}
+    	.xq div{margin: 15px 10px;}
+    	.mui-backdrop{display: none;}
+    	.colse{font-size: 18px;background: #E5E5E5;line-height: 50px;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">电台</h1>
+	</header>
+	<div class="mui-content">
+		<div class="mui-backdrop">
+			<div class="change">
+				<div class="change_title mui-text-center">心情电台·请选择你当下的心情</div>
+				<div class="flex just-around xq">
+					<div><img src="../../image/radio/pinjing2.png" class="width-100"/></div>
+					<div><img src="../../image/radio/xindong.png" class="width-100"/></div>
+					<div><img src="../../image/radio/gaoxing2.png" class="width-100"/></div>
+					<div><img src="../../image/radio/xuanxie.png" class="width-100"/></div>
+					<div><img src="../../image/radio/shangan.png" class="width-100"/></div>
+				</div>
+				<div class="colse mui-text-center hover">取消</div>
+			</div>
+		</div>
+		<div class="mui-scroll-wrapper">
+		    <div class="mui-scroll">
+		    	<!--导航-->
+		    	<div class="sxt">
+		    		<div class="sxt_title">随身听</div>
+		    		<div class="flex flex-wrap">
+		    			<div class="sxt_list">
+		    				<div><img src="../../image/radio/pinjing.png" class="width-100"/></div>
+		    				<div class="mui-text-center sm_font">心情·平静></div>
+		    			</div>
+		    			<div class="sxt_list">
+		    				<div><img src="../../image/radio/diantai_1.png" class="width-100"/></div>
+		    				<div class="mui-text-center sm_font">dj摇滚</div>
+		    			</div>
+		    			<div class="sxt_list">
+		    				<div><img src="../../image/radio/diantai_2.png" class="width-100"/></div>
+		    				<div class="mui-text-center sm_font">咖啡馆</div>
+		    			</div>
+		    		</div>
+		    	</div>
+				<div class="my_riado mt-15">
+					<div class="flex just-between">
+						<div class="sxt_title">自建电台</div>
+						<div class="hover sm_font">编辑</div>
+					</div>
+					<div class="flex flex-wrap">
+		    			<div class="sxt_list">
+		    				<div><img src="../../image/radio/xinjian.png" class="width-100"/></div>
+		    				<div class="mui-text-center sm_font">新建电台</div>
+		    			</div>
+		    		</div>
+				</div>
+		    </div>
+		</div>
+	</div>
+	<footer id="1"></footer>
+</body>
+<script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript">
+	mui("div").on("tap",".colse",function(e){
+		e.stopPropagation();
+		$(".change").animate({
+			height:0
+		},300,function(){
+			$(".mui-backdrop").hide();
+		})
+	})
+	mui("div").on("tap",".sxt_list",function(e){
+		e.stopPropagation();
+		$(".mui-backdrop").show();
+		$(".change").animate({
+			height:"215.72px"
+		},300)
+	})
+</script>
+</html>

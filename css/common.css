@@ -68,6 +68,9 @@
 .flex-wrap{
 	flex-wrap: wrap;
 }
+.color-fff{
+	color: #fff;
+}
 footer{
 	position: fixed;
 	height: 55px;

@@ -7,84 +7,56 @@
     <link rel="stylesheet" href="../../css/mui.min.css" />
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
-    	.mui-scroll{top: 44px;}
+    	.mui-scroll{top: 190px;padding: 0;padding-bottom: 190px;}
     	.logo{vertical-align: middle;width: 25px;}
-    	.mui-scroll{padding: 0;}
-    	.hui{height: 10px;background: #e0e0e0;}
-    	.user{padding: 15px;box-sizing: border-box;}
-    	.user_img{width: 70px;height: 70px;border-radius: 50%;overflow: hidden;}
-    	.br{border-right: 1px solid #C0BFBD;font-size: 14px;}
-    	.user_top{border-bottom: 1px solid #E6E6E6;padding-bottom: 15px;}
-    	.log_text{color: #A09C93;font-size: 15px;padding-top: 6px;}
-    	.menu{padding: 25px 0;}
-    	.kuai{width: 33%;margin-bottom: 25px;font-size: 14px;color: #6B6B6B;}
-    	.kuai img{width: 35px;margin-bottom: 8px;}
+    	.user{padding: 15px 15px 45px 15px;box-sizing: border-box;background:url(../../image/bg2.png);background-size: 100% 100%;position: relative;top: -4px;z-index: 99999;}
+    	.mui-bar-nav{box-shadow: none;}
+    	.user_img{width: 100px;height: 100px;}
+    	.user_img img{border-radius: 50%;}
+    	.name{font-size: 24px;}
+    	.fens{font-size: 14px;margin-top: 10px;}
+    	.lable{border: 1px solid #fff;margin-right: 30px;border-radius: 20px;line-height: 30px;margin-top: 15px;}
+    	.lable span{width: 33%;display: inline-block;text-align: center;color: #fff;}
+    	.lable span.active{background: #fff;border-radius: 20px;color: #FF6D6E;}
     </style>
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav">
-	    <a class="mui-pull-left"><img class="logo" style="position: relative;top: 10px;left: 5px;" src="../../image/email.png"/></a>
+	    <a class="mui-pull-left"></a>
 	    <h1 class="mui-title">账号</h1>
-	    <a class="mui-pull-right"><img class="logo" style="position: relative;top: 10px;right: 5px;" src="../../image/setting.png"/></a>
+	    <a class="mui-pull-right play"><img class="logo" style="position: relative;top: 10px;right: 5px;" src="../../image/right_top.png"/></a>
 	</header>
 	<div class="mui-content">
+		<div class="user flex">
+    		<div class="flex1">
+    			<div class="color-fff name">名字名字</div>
+    			<div class="color-fff fens">关注2 | 粉丝99</div>
+    			<div class="lable"><span class="active" title="0">音乐</span><span title="1">动态</span><span title="2">关于</span></div>
+    		</div>
+    		<div class="user_img"><img src="../../image/touxiang.png" class="width-100"/></div>
+    	</div>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
-		    	<div class="hui"></div>
-		    	<div class="user">
-		    		<div class="flex align-center mb-15 user_top hover">
-		    			<div class="user_img mr-15"><img class="width-100" src="../../image/touxiang.png"/></div>
-		    			<div class="flex1">
-		    				<div>姓名</div>
-		    				<div style="margin-top: 10px;color: #AFABA8;">个性签名</div>
-		    			</div>
-		    			<div class="mui-icon mui-icon-arrowright right_sj"></div>
-		    		</div>
-		    		<div class="flex just-between mui-text-center">
-		    			<div class="flex1 br">
-		    				10
-		    				<div class="log_text">发布</div>
-		    			</div>
-		    			<div class="flex1 br">11
-		    				<div class="log_text">关注</div>
-		    			</div>
-		    			<div class="flex1 br">12
-		    				<div class="log_text">粉丝</div>
-		    			</div>
-		    			<div class="flex1">13
-		    				<div class="log_text">播放</div>
-		    			</div>
-		    		</div>
-		    	</div>
-		    	<div class="hui"></div>
-		    	<div class="menu">
-		    		<div class="flex flex-wrap mui-text-center">
-		    			<div class="kuai">
-		    				<div><img src="../../image/menu1.png"/></div>
-		    				<div>我喜欢(17)</div>
-		    			</div>
-		    			<div class="kuai">
-		    				<div><img src="../../image/menu2.png"/></div>
-		    				<div>关注的电台</div>
-		    			</div>
-		    			<div class="kuai">
-		    				<div><img src="../../image/menu3.png"/></div>
-		    				<div>我的歌单</div>
-		    			</div>
-		    			<div class="kuai">
-		    				<div><img src="../../image/downlowd.png"/></div>
-		    				<div>缓存</div>
-		    			</div>
-		    			<div class="kuai">
-		    				<div><img src="../../image/menu5.png"/></div>
-		    				<div>历史播放</div>
-		    			</div>
-		    			<div class="kuai">
-		    				<div><img src="../../image/menu6.png"/></div>
-		    				<div>我的草稿</div>
-		    			</div>
-		    		</div>
-		    	</div>
+		    	
+		    	<div class="mui-slider" id="slider">
+				  <div class="mui-slider-group">
+				    <!--第一个内容区容器-->
+				    <div class="mui-slider-item">
+				      <!-- 具体内容 -->
+				      <div><img src="../../image/zhuanji.png" class="width-100 mt-15"/></div>
+				    </div>
+				    <!--第二个内容区-->
+				    <div class="mui-slider-item">
+				      <!-- 具体内容 -->
+				      <div><img src="../../image/dongtai.png" class="width-100 mt-15"/></div>
+				    </div>
+				     <!--第三个内容区-->
+				    <div class="mui-slider-item">
+				      <!-- 具体内容 -->
+				      <div><img src="../../image/geren.png" class="width-100 mt-15"/></div>
+				    </div>
+				  </div>
+				</div>
 		    </div>
 		</div>
 	</div>
@@ -92,13 +64,14 @@
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
-<script type="text/javascript" charset="utf-8">
-  	mui.plusReady(function(){
-		mui("div").on("tap",".user_top",function(e){
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript">
+	mui.plusReady(function(){
+		mui("div").on("tap",".lable span",function(e){
 			e.stopPropagation();
-			plus.webview.create("index.html","user").show('slide-in-right', 200);
+			$(this).addClass("active").siblings().removeClass("active");
+			mui('#slider').slider().gotoItem($(this).index());
 		})
-  	})
-  	
+	})
 </script>
 </html>

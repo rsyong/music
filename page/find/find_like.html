@@ -8,20 +8,28 @@
     <link rel="stylesheet" href="../../css/common.css" />
     <style>
     	.find{flex-direction: column;background: #FFF2E9;padding: 8vw 3.6vw;}
-    	.btns{width: 60%;margin-top: 5vw;}
+    	.music{position: absolute;top: 0;width: 90%;left: 5%;top: 5vw;}
+    	.bt{position: absolute;width: 80%;left: 10%;bottom: 5vw;}
+    	.add_friend{background: #FF6D6E;color: #fff;height: 45px;line-height: 45px;border-radius: 5px;margin-bottom: 5vw;}
+    	.go_home{background: transparent;border: 1px solid #D5D5D3;}
     </style>
 </head>
 <body>
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-	    <h1 class="mui-title">发现</h1>
+	    <h1 class="mui-title">喜欢</h1>
 	</header>
 	<div class="mui-content">
 		<div class="flex find">
-			<div><img src="../../image/tu.png" class="width-100"/></div>
-			<div class="flex just-around">
-				<div class="flex1 mui-text-center open" data-url="find_like.html" data-id="find_like"><img src="../../image/xihuan.png" class="btns"/></div>
-				<div class="flex1 mui-text-center"><img src="../../image/no.png" class="btns"/></div>
+			<div style="position: relative;">
+				<img src="../../image/bg.png" class="width-100"/>
+				<div class="music">
+					<img src="../../image/music.png" class="width-100"/>
+				</div>
+				<div class="bt">
+					<div class="width-100 add_friend mui-text-center hover">添加好友</div>
+					<div class="width-100 add_friend go_home mui-text-center hover">添加好友</div>
+				</div>
 			</div>
 		</div>
 	</div>
