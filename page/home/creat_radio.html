@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../css/mui.min.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+    	.mui-scroll{top: 44px;padding-bottom: 0px;}
+    	.label{width: 21.5vw;font-size: 15px;line-height: 36px;background: #DFDFDF;color: #2B2B2B;border-radius: 36px;text-align: center;margin-right: 2vw;margin-bottom: 15px;}
+    	.suer{position: fixed;width: 100%;bottom: 0px;padding: 15px 10px;box-sizing: border-box;z-index: 9999;}
+    	.label2{width: 25vw;font-size: 15px;line-height: 36px;background: #FF6D6E;color: #fff;border-radius: 36px;text-align: center;margin-right: 2vw;margin-bottom: 15px;}
+    	.label_active{background: #FF6D6E;color: #fff;}
+    	.over{display: block;width: 100%;line-height: 40px;font-size: 18px;background: #5DD454;color: #fff;border: none;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">自建电台</h1>
+	</header>
+	<div class="mui-content">
+		<div class="mui-scroll-wrapper">
+		    <div class="mui-scroll">
+		    	<!--导航-->
+		    	<p class="mui-text-center">选择或搜索添加3个你最喜欢的标签</p>
+		    	<div class="flex flex-wrap labels"></div>
+		    	
+		    </div>
+		</div>
+	</div>
+	<div class="suer">
+		<div class="flex flex-wrap label_col">
+			
+		</div>
+		<button class="over hover">完成</button>
+	</div>
+</body>
+<script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript">
+	mui.plusReady(function(){
+		var labelArray=["国语流行","欧美流行","韩国流行","轻音乐","名摇","摇滚","节凑","嘻哈","经典","古典","电子","乡村","中国风","粤语","金属","爵士"];
+		var html='';
+		$.each(labelArray,function(index){
+			html+='<div class="label">'+labelArray[index]+'</div>';
+		})
+		$(".labels").html(html);
+		mui("div").on("tap",".label",function(e){
+			e.stopPropagation();
+			var name=$(this).text();
+			if($(this).hasClass("label_active")){
+				$(this).removeClass("label_active");
+				$.each($(".label_col .label2"), function(i) {
+					console.log($(this).text())
+					if($(this).text()==name){
+						$(this).remove();
+					}
+				});
+			}else{
+				if($(".label_col").children(".label2").length>2){
+					mui.alert("最多可选三个标签");
+					return;
+				}
+				$(this).addClass("label_active");
+				$(".label_col").html($(".label_col").html()+'<div class="label2">'+name+'</div>');
+			}
+		})
+		
+	})
+	mui("div").on("tap","button",function(e){
+		e.stopPropagation();
+		mui.alert('创建成功', '提示', function() {
+            mui.back();
+        });
+	})
+</script>
+</html>

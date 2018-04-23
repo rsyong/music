@@ -11,6 +11,9 @@
     	.right{float: right;width: 30px;margin-right: 10px;margin-top: 20px;}
     	.left_nav{position: relative;}
     	.xf{position: absolute;right: 10px;width: 100px;line-height: 36px;background: #eee;text-align: center;padding: 10px 0;border: 1px solid #D7D7D7;text-indent:0;font-size: 16px;top: 50px;display: none;}
+    	.mui-backdrop{background: rgba(0,0,0,.6);display: none;}
+    	.xq div{margin: 20px 15px;}
+    	.change{position: absolute;width: 100%;top: 0;background: #fff;border-radius: 5px;height: 0;}
     </style>
 </head>
 <body>
@@ -20,6 +23,16 @@
 	    <a class="mui-pull-right"><img src="../../image/email.png"/></a>
 	</header>
 	<div class="mui-content">
+		<div class="mui-backdrop">
+			<div class="change">
+				<div class="flex just-around xq">
+					<div class="open" data-url="creat_story.html" data-id="creat_story"><img src="../../image/youqing.png" class="width-100"/></div>
+					<div class="open" data-url="creat_story.html" data-id="creat_story"><img src="../../image/libie.png" class="width-100"/></div>
+					<div class="open" data-url="creat_story.html" data-id="creat_story"><img src="../../image/xiangni.png" class="width-100"/></div>
+					<div class="open" data-url="creat_story.html" data-id="creat_story"><img src="../../image/gegnduo.png" class="width-100"/></div>
+				</div>
+			</div>
+		</div>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
 		    	<!--导航-->
@@ -28,7 +41,7 @@
 					<div class="flex1"><img class="width-100" src="../../image/form1.png"/></div>
 					<div class="flex1" style="margin: 0 10px;"><img class="width-100" src="../../image/form1.png"/></div>
 					<div style="width: 30px;margin: 0 10px;padding-top: 40px;"><img class="width-100" src="../../image/morn.png"/></div>
-					<div class="flex1" style="margin-left: 10px;"><img class="width-100" src="../../image/add.png"/></div>
+					<div class="flex1 sxt_list" style="margin-left: 10px;"><img class="width-100" src="../../image/add.png"/></div>
 				</div>
 				<!--导航-->
 				<div class="left_nav mb-15">精选
@@ -40,7 +53,7 @@
 					</ul>
 				</div>
 				<div class="mb-15">
-					<div><img class="width-100" src="../../image/s1.png"/></div>
+					<div class="open" data-url="story_look.html" data-id="story_look"><img class="width-100" src="../../image/s1.png"/></div>
 					<div><img class="width-100" src="../../image/s2.png"/></div>
 					<div><img class="width-100" src="../../image/s3.png"/></div>
 					<div><img class="width-100" src="../../image/s4.png"/></div>
@@ -54,9 +67,26 @@
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
 <script type="text/javascript" charset="utf-8">
-  	$(".right").on("touchstart",function(e){
-  		e.stopPropagation();
-  		$(".xf").slideToggle(200);
-  	})
+	mui.plusReady(function(){
+		mui("html").on("tap","body",function(){
+			$(".change").animate({
+				height:0
+			},300,function(){
+				$(".mui-backdrop").hide();
+			})
+		})
+		mui("div").on("tap",".sxt_list",function(e){
+			e.stopPropagation();
+			$(".mui-backdrop").show();
+			$(".change").animate({
+				height:"33.5vw"
+			},300)
+		})
+		mui("div").on("tap",".right",function(e){
+			e.stopPropagation();
+	  		$(".xf").slideToggle(200);
+		})
+	})
+  	
 </script>
 </html>

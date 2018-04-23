@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../css/mui.min.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+    	.mui-scroll{top: 44px;padding-bottom: 40px;}
+    	body,.mui-content{background: #fff;}
+    	.serah{background: #FF6D6E;padding-top: 10px;}
+    	.mui-bar-nav{box-shadow: none;}
+    	input[type=search]{background: #fff;border-radius: 20px;}
+    	.content{padding: 10px;box-sizing: border-box;}
+    	input[type=text].name{border: none;border-bottom: 1px solid #BFBFBF;margin-bottom: 0;}
+    	textarea{height: 80vw;border: none;}
+    	.fb{position: fixed;width: 100%;bottom: 0;left: 0;padding: 15px;box-sizing: border-box;}
+    	.add{width: 70px;height: 50px;margin-right: 15px;}
+    	.cg_btn{background: #FAA048;color: #fff;line-height: 50px;margin-right: 15px;margin-top: 40px;border-radius: 5px;text-align: center;}
+    	.fb_btn{background: #5DD454;color: #fff;line-height: 50px;margin-top: 40px;border-radius: 5px;text-align: center;}
+    	.mui-table-view a{color: #007aff !important;}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">故事集</h1>
+	    <div class="mui-pull-right"><span style="position: relative;top: 10px;color: #fff;">草稿箱</span></div>
+	</header>
+	<div class="mui-content">
+		<div class="serah">
+			<div class="mui-input-row mui-search" style="width: 80%;margin-left: 10%;">
+			    <input type="search" class="mui-input-clear" placeholder="请输入歌曲、歌词、歌曲">
+			</div>
+		</div>
+		<div class="content">
+			<div class="mui-input-row">
+				<input type="text" placeholder="标题" class="name mui-input-speech"/>
+			</div>
+			<div class="mui-input-row">
+				<textarea placeholder="说点什么吧.."></textarea>
+			</div>
+			
+		</div>
+		<div class="fb">
+			<div class="flex align-center">
+				<a href="#picture"><div class="add"><img src="../../image/tianjia.png" class="width-100"/></div></a>
+				<div class="color-hui">添加音乐、图片</div>
+			</div>
+			<div class="flex">
+				<div class="flex1 cg_btn hover">存草稿</div>
+				<div class="flex2 fb_btn hover">发表</div>
+			</div>
+		</div>
+	</div>
+	<div id="picture" class="mui-popover mui-popover-action mui-popover-bottom">
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<a href="#">录音</a>
+			</li>
+			<li class="mui-table-view-cell">
+				<a href="#">本地音乐</a>
+			</li>
+		</ul>
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell">
+				<a href="#picture" style="color: #007aff;">取消</a>
+			</li>
+		</ul>
+	</div>
+</body>
+<script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript">
+	mui("div").on("tap",".fb_btn",function(e){
+		e.stopPropagation();
+		mui.alert('发表成功', '提示', function() {
+            mui.back();
+        });
+	})
+</script>
+</html>
