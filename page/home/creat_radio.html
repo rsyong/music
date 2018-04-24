@@ -68,13 +68,13 @@
 				$(".label_col").html($(".label_col").html()+'<div class="label2">'+name+'</div>');
 			}
 		})
-		
+		mui("div").on("tap","button",function(e){
+			e.stopPropagation();
+			mui.alert('创建成功', '提示', function() {
+	            mui.back();
+	        });
+		})
 	})
-	mui("div").on("tap","button",function(e){
-		e.stopPropagation();
-		mui.alert('创建成功', '提示', function() {
-            mui.back();
-        });
-	})
+	
 </script>
 </html>

@@ -27,22 +27,24 @@
 	<header class="mui-bar mui-bar-nav">
 	    <a class="mui-action-back mui-icon mui-icon-arrowdown"></a>
 	    <h1 class="mui-title">粉红色的回忆</h1>
-	    <a class="mui-pull-right"><img src="../../image/share.png"/></a>
+	    <a class="mui-pull-right" onclick="shareShow()"><img src="../../image/share.png"/></a>
 	</header>
 	<div class="mui-content">
 		<div class="mui-text-center" style="color: #4C4949;"><div id="marquee"></div></div>
-		<div class="fm"><img class="width-100" src="../../image/person.png"/></div>
+		<div class="fm"><img class="width-100"  id="pic" src="../../image/person.png"/></div>
 		<div class="mui-scroll-wrapper">
 		    <div class="mui-scroll">
 		        <!--<div>我是歌词</div>
 		        <div>我是歌词</div>
 		        <div>我是歌词</div>
 		        <div>我是歌词</div>-->
+		        <textarea id="sharecontent" style="display: none;">Mis Ran 开发！</textarea>
 		    </div>
 		</div>
 		<div class="paly">
+			
 			<div class="flex just-around">
-				<div><img class="tp1" src="../../image/Collection2.png"/></div>
+				<div><img class="tp1 love" src="../../image/Collection2.png"/></div>
 				<div><img class="tp1" src="../../image/downlowd.png"/></div>
 				<div><img class="tp1" src="../../image/comment.png"/></div>
 				<div><img class="tp1" src="../../image/morn.png"/></div>
@@ -68,17 +70,22 @@
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script type="text/javascript" src="../../js/share.js" ></script>
 <script type="text/javascript" charset="utf-8">
 	document.addEventListener("plusready", onPlusReady, false); 
 	function onPlusReady(){
+		//歌单
 		var mp3List=[
 			{title:'粉红色的回忆',url:'../../mp3/fhsdhy.mp3',name:'王宝强、刘昊然、肖央、潘粤明、小沈阳、张子枫'},
 			{title:'该',url:'../../mp3/gai.mp3',name:'曲肖冰'},
 			{title:'在心里从此永远有个你',url:'../../mp3/zxliccygn.mp3',name:'办桌二人组'},
 		];
+		//记住此时播放在哪
 		var page=localStorage.page || 0;
 		var time,n,player,ispaly,allLong=null;
 		var tp3=document.querySelector(".tp3");
+		//定义播放组件
 		var mp3={
 			init:function(){
 				player = plus.audio.createPlayer(mp3List[page].url);
@@ -95,6 +102,7 @@
 				}else{
 					document.querySelector("#marquee").innerText=mp3List[page].name;
 				}
+				document.querySelector("#sharecontent").value=mp3List[page].title;
 				document.querySelector(".mui-title").innerText=mp3List[page].title;
 			},
 			toPlay:function(){
@@ -149,15 +157,19 @@
 				this.toPlay();
 			}
 		}
+		//mp3播放初始化
 		mp3.init();
+		//上一曲
 		mui("div").on("tap",".prev",function(e){
 			e.stopPropagation();
 			mp3.prev();
 		})
+		//下一曲
 		mui("div").on("tap",".next",function(e){
 			e.stopPropagation();
 			mp3.next();
 		})
+		//播放
 		mui("div").on("tap",".tp3",function(e){
 			e.stopPropagation();
 			if(tp3.title=="true"){
@@ -169,6 +181,7 @@
 				mp3.toPlay();
 			}
 		})
+		//时间转换为秒
 		function formatSeconds(value) {
 	        var secondTime = parseInt(value);// 秒
 	        var minuteTime = 0;// 分
@@ -187,9 +200,22 @@
 		mui('.mui-scroll-wrapper').scroll({
 			indicators: false, //是否显示滚动条
 		});
+		//隐藏窗口
 		mui("header").on("tap",".mui-action-back",function(e){
 			e.stopPropagation();
 		　　plus.webview.hide(plus.webview.currentWebview(),"fade-out");
+		})
+		//收藏
+		mui("div").on("tap",".love",function(e){
+			e.stopPropagation();
+			if($(this).attr("src")=="../../image/Collection2.png"){
+				$(this).attr("src","../../image/Collection1.png");
+				mui.toast("收藏成功");
+			}else{
+				$(this).attr("src","../../image/Collection2.png");
+				mui.toast("取消成功");
+			}
+			
 		})
 	}
 </script>
