@@ -18,10 +18,10 @@
 	</header>
 	<div class="mui-content">
 		<div class="flex find">
-			<div><img src="../../image/tu.png" class="width-100"/></div>
+			<div class="play"><img src="../../image/tu.png" class="width-100"/></div>
 			<div class="flex just-around">
 				<div class="flex1 mui-text-center open" data-url="find_like.html" data-id="find_like"><img src="../../image/xihuan.png" class="btns"/></div>
-				<div class="flex1 mui-text-center"><img src="../../image/no.png" class="btns"/></div>
+				<div class="flex1 mui-text-center next"><img src="../../image/no.png" class="btns"/></div>
 			</div>
 		</div>
 	</div>
@@ -29,4 +29,10 @@
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript">
+	mui("div").on("tap",".next",function(e){
+		e.stopPropagation();
+		
+	})
+</script>
 </html>

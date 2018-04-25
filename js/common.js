@@ -53,7 +53,7 @@ function onPlusReady(){
 		    },
 		})
 	}
-	mui("body").on("tap",".play",function(e){
+	mui("body,div").on("tap",".play",function(e){
 		e.stopPropagation();
 		if(localStorage.isOpen=="true"){
 			w=plus.webview.show("play");
