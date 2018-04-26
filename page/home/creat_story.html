@@ -36,8 +36,8 @@
 		</div>
 		<div class="content">
 			<div class="flex just-between">
-				<div><img src="../../image/btn_Zluyin.png" class="width-100"/></div>
-				<div><img src="../../image/btn_Zluyinbd.png" class="width-100"/></div>
+				<div class="open" data-url="recording.html" data-id="recording"><img src="../../image/btn_Zluyin.png" class="width-100"/></div>
+				<div class="loca_mp4"><img src="../../image/btn_Zluyinbd.png" class="width-100"/></div>
 			</div>
 			<div class="mui-input-row mt-15">
 				<input type="text" placeholder="标题" class="name"/>
@@ -49,7 +49,7 @@
 		</div>
 		<div class="fb">
 			<div class="flex align-center">
-				<div class="add"><img src="../../image/tianjia.png" class="width-100"/></div>
+				<div class="add loca_mp4"><img src="../../image/tianjia.png" class="width-100"/></div>
 				<div class="color-hui" style="position: relative;top: 10px;">添加图片</div>
 			</div>
 			<div class="flex">
@@ -63,11 +63,25 @@
 <script type="text/javascript" src="../../js/common.js" ></script>
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
 <script type="text/javascript">
-	mui("div").on("tap",".fb_btn",function(e){
-		e.stopPropagation();
-		mui.alert('发表成功', '提示', function() {
-            mui.back();
-        });
+	mui.plusReady(function(){
+		mui("div").on("tap",".fb_btn",function(e){
+			e.stopPropagation();
+			mui.alert('发表成功', '提示', function() {
+	            mui.back();
+	        });
+		})
+		mui("div").on("tap",".loca_mp4",function(e){
+			e.stopPropagation();
+			plus.gallery.pick(function(path){
+				console.log(JSON.stringify(path))
+			}, function(e){
+				console.log(JSON.stringify(e))
+				if(e.code=="-2"){
+					mui.toast("取消选择");
+				}
+			}, {filter:"none"} );
+		})
 	})
+	
 </script>
 </html>

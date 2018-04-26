@@ -9,6 +9,7 @@
     <style>
     	.find{flex-direction: column;background: #FFF2E9;padding: 8vw 3.6vw;}
     	.btns{width: 60%;margin-top: 5vw;}
+    	.plays{position: absolute;width: 21.2vw;height: 21.2vw;top: 32.9vw;z-index: 9999;left: 35.6vw;}
     </style>
 </head>
 <body>
@@ -18,7 +19,9 @@
 	</header>
 	<div class="mui-content">
 		<div class="flex find">
-			<div class="play"><img src="../../image/tu.png" class="width-100"/></div>
+			<div style="position: relative;"><img id="toPlay_momo" src="../../image/tu.png" class="width-100"/>
+				<img title="true" id="toPlay" src="../../image/plays.png" class="plays"/>
+			</div>
 			<div class="flex just-around">
 				<div class="flex1 mui-text-center open" data-url="find_like.html" data-id="find_like"><img src="../../image/xihuan.png" class="btns"/></div>
 				<div class="flex1 mui-text-center next"><img src="../../image/no.png" class="btns"/></div>
@@ -29,10 +32,66 @@
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
 <script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
 <script type="text/javascript">
-	mui("div").on("tap",".next",function(e){
-		e.stopPropagation();
-		
+	mui.plusReady(function(){
+		var imageArray=["../../image/tu.png","../../image/1.png"];
+		//歌单
+		var mp3List=[
+			{title:'粉红色的回忆',url:'../../mp3/fhsdhy.mp3',name:'王宝强、刘昊然、肖央、潘粤明、小沈阳、张子枫'},
+			{title:'该',url:'../../mp3/gai.mp3',name:'曲肖冰'},
+		];
+		var imgNum=0;
+		mui("div").on("tap",".next",function(e){
+			e.stopPropagation();
+			if(imgNum>=imageArray.length-1){
+				imgNum=-1;
+			}
+			$("#toPlay_momo").attr("src",imageArray[++imgNum]);
+			mp3.next();
+		})
+		var page=0;
+		var player,ispaly=null;
+		ispaly=false;
+		var mp3={
+			init:function(){
+				player = plus.audio.createPlayer(mp3List[page++].url);
+				ispaly=false;
+			},
+			toPlay:function(){
+				player.play(function(){
+					mp3.next();
+				},function (e) {
+					mui.toast("播放出错"+e.message);
+				});
+			},
+			next:function(){
+				if(page>mp3List.length-1){
+					page=0;
+				}
+				player.stop();
+				this.init();
+				this.toPlay();
+			}
+		}
+		mp3.init();
+		mui("div").on("tap","#toPlay",function(e){
+			e.stopPropagation();
+			if($("#toPlay").attr("title")=="true"){
+				if(ispaly){
+					player.resume();
+				}else{
+					mp3.toPlay();
+				}
+				$("#toPlay").attr("title","false");
+			}else{
+				player.pause();
+				ispaly=true;
+				$("#toPlay").attr("title","true");
+			}
+			
+		})
 	})
+	
 </script>
 </html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <link rel="stylesheet" href="../../css/mui.min.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <style>
+    	.mui-scroll{top: 44px;padding-bottom: 40px;}
+    	.mui-bar-nav{box-shadow: none;}
+    	.luyin{background: url(../../image/bg_luyin.png) no-repeat center;position: fixed;top: 44px;width: 100%;height: calc(100% - 44px);background-size: 100% 100%;}
+    	.plays{height: 41vh;position: absolute;bottom: 0;width: 100%;padding:10vw 5vw;box-sizing: border-box;}
+    	#colos img,#suer img{width: 35%;position: relative;}
+    	#toplay img{width: 50%;position: relative;}
+    	.top{height: 52vh;position: absolute;top: 0;width: 100%;text-align: center;}
+    	.top img{width: 40%;position: relative;top: 17vw;display: none;}
+    	.anim{animation:myfirst 3s linear infinite;
+		-webkit-animation:myfirst 3s linear infinite; /* Safari and Chrome */}
+		@keyframes myfirst{
+			from {transform:rotate(0);}
+			to {transform:rotate(360deg);}
+		}
+		@-webkit-keyframes myfirst{
+			from {transform:rotate(0);}
+			to {transform:rotate(360deg);}
+		}
+    </style>
+</head>
+<body>
+	<header class="mui-bar mui-bar-nav">
+	    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+	    <h1 class="mui-title">录音</h1>
+	</header>
+	<div class="mui-content">
+		<div class="luyin">
+			<div class="top"><img src="../../image/juhua.png"/></div>
+			<div class="plays flex just-around align-center mui-text-center">
+				<div class="flex1" id="colos"><img src="../../image/btn_luyin_X.png"/></div>
+				<div class="flex2" id="toplay"><img src="../../image/btn_luyin.png"/></div>
+				<div class="flex1" id="suer"><img src="../../image/btn_luyin_gou.png"/></div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript" src="../../js/mui.min.js" ></script>
+<script type="text/javascript" src="../../js/common.js" ></script>
+<script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
+<script>
+	mui.plusReady(function(){
+		var obj={
+			begin:function(){
+				$("#toplay").children("img").hide(200);
+				$("#toplay").children("img").attr("src","../../image/btn_luyin2.png").show(200);
+				$("#colos img").animate({
+					left:"-50vw"
+				},400)
+				$("#suer img").attr("src","../../image/btn_luyin_del.png");
+				$(".top img").fadeOut(100,function(){
+					$(".top img").attr("src","../../image/juhua.png").css("width","40%").css("top","17vw").fadeIn(300).addClass("anim");
+				});
+				var r=plus.audio.getRecorder();
+				console.log(JSON.stringify(r))
+			},
+			over:function(){
+				$("#toplay").children("img").hide(200);
+				$("#toplay").children("img").attr("src","../../image/btn_luyin3.png").show(200);;
+				$("#colos img").animate({
+					left:"0"
+				},400)
+				$("#suer img").attr("src","../../image/btn_luyin_gou.png");
+				$(".top img").fadeOut(100,function(){
+					$(".top img").attr("src","../../image/btn_play.png").css("width","15%").css("top","28vw").removeClass("anim").fadeIn(200);
+				});
+				
+			},
+			init:function(){
+				$("#toplay").children("img").attr("src","../../image/btn_luyin.png");
+				$("#colos img").animate({
+					left:"0"
+				},400)
+				$("#suer img").attr("src","../../image/btn_luyin_gou.png");
+				$(".top img").attr("src","").hide();
+			}
+		}
+		mui("div").on("tap","#toplay",function(e){
+			e.stopPropagation();
+			//获取路径并作判断
+			var src=$(this).children("img").attr("src");
+			if(src=="../../image/btn_luyin.png" || src=="../../image/btn_luyin3.png"){	//开始录音
+				obj.begin();
+			}else{
+				//结束录音
+				obj.over();
+			}
+		})
+		mui("div").on("tap","#suer",function(e){
+			e.stopPropagation();
+			var src=$("#suer").children("img").attr("src");
+			if(src=="../../image/btn_luyin_del.png"){//判断是否是删除按钮
+				var btnArray = ['否', '是'];
+                mui.confirm('你确定要删除此录音吗？', '提示', btnArray, function(e) {
+                    if (e.index == 1) {
+                        mui.toast("删除成功");
+                        obj.init();
+                    }
+                })
+			}else{
+				if($(".top img").attr("src")=="../../image/btn_play.png"){
+					var btnArray = ['否', '是'];
+	                mui.confirm('是否保存此录音？', '提示', btnArray, function(e) {
+	                    if (e.index == 1) {
+	                        mui.toast("保存成功");
+	                        mui.back();
+	                    }
+	                })
+				}
+			}
+		})
+		mui("div").on("tap","#colos",function(e){
+			e.stopPropagation();
+			//获取路径并作判断
+			var src=$(".top").children("img").attr("src");
+			if(src=="../../image/btn_play.png"){
+				var btnArray = ['否', '是'];
+                mui.confirm('你确定要删除此录音吗？', '提示', btnArray, function(e) {
+                    if (e.index == 1) {
+                        mui.toast("删除成功");
+                        obj.init();
+                    }
+                })
+			}
+		})
+	})
+</script>
+</html>
