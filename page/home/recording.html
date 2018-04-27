@@ -48,6 +48,7 @@
 <script type="text/javascript" src="../../js/jquery-3.2.1.min.js" ></script>
 <script>
 	mui.plusReady(function(){
+		var recorder=null;
 		var obj={
 			begin:function(){
 				$("#toplay").children("img").hide(200);
@@ -59,8 +60,13 @@
 				$(".top img").fadeOut(100,function(){
 					$(".top img").attr("src","../../image/juhua.png").css("width","40%").css("top","17vw").fadeIn(300).addClass("anim");
 				});
-				var r=plus.audio.getRecorder();
-				console.log(JSON.stringify(r))
+				//调用录音
+				recorder = plus.audio.getRecorder(); 
+				recorder.record({filename:"_doc/audio/"},function(e){
+					console.log("成功"+JSON.stringify(e))
+				},function(e){
+					mui.toast("失败"+JSON.stringify(e))
+				});
 			},
 			over:function(){
 				$("#toplay").children("img").hide(200);
@@ -72,7 +78,8 @@
 				$(".top img").fadeOut(100,function(){
 					$(".top img").attr("src","../../image/btn_play.png").css("width","15%").css("top","28vw").removeClass("anim").fadeIn(200);
 				});
-				
+				//结束录音
+				recorder.stop();
 			},
 			init:function(){
 				$("#toplay").children("img").attr("src","../../image/btn_luyin.png");
@@ -111,6 +118,7 @@
 	                mui.confirm('是否保存此录音？', '提示', btnArray, function(e) {
 	                    if (e.index == 1) {
 	                        mui.toast("保存成功");
+	                        recorder.stop();
 	                        mui.back();
 	                    }
 	                })
@@ -125,6 +133,12 @@
 				var btnArray = ['否', '是'];
                 mui.confirm('你确定要删除此录音吗？', '提示', btnArray, function(e) {
                     if (e.index == 1) {
+                    	gentry.removeRecursively(function(){
+							// Success
+							mui.toast('操作成功！');
+						}, function(e){
+							mui.toast('操作失败：'+e.message);
+						});
                         mui.toast("删除成功");
                         obj.init();
                     }

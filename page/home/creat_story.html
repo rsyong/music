@@ -20,6 +20,7 @@
     	.cg_btn{background: #FAA048;color: #fff;line-height: 50px;margin-right: 15px;margin-top: 40px;border-radius: 5px;text-align: center;}
     	.fb_btn{background: #5DD454;color: #fff;line-height: 50px;margin-top: 40px;border-radius: 5px;text-align: center;}
     	.mui-table-view a{color: #007aff !important;}
+    	.times{font-size: 13px;color: #666;}
     </style>
 </head>
 <body>
@@ -48,15 +49,24 @@
 			
 		</div>
 		<div class="fb">
-			<div class="flex align-center">
-				<div class="add loca_mp4"><img src="../../image/tianjia.png" class="width-100"/></div>
-				<div class="color-hui" style="position: relative;top: 10px;">添加图片</div>
+			<div class="flex just-between">
+				<div class="flex align-center">
+					<div class="add loca_mp4"><img src="../../image/tianjia.png" class="width-100"/></div>
+					<div class="color-hui" style="position: relative;top: 10px;">添加图片</div>
+				</div>
+				<div class="flex align-center">
+					<div class="add over_mp3"><img src="../../image/tianjia.png" class="width-100"/></div>
+					<div class="color-hui" style="position: relative;top: 10px;">已录录音</div>
+				</div>
 			</div>
 			<div class="flex">
 				<div class="flex1 cg_btn hover">存草稿</div>
 				<div class="flex2 fb_btn hover">发表</div>
 			</div>
 		</div>
+	</div>
+	<div id="popover" class="mui-popover">
+	  <ul class="mui-table-view"></ul>
 	</div>
 </body>
 <script type="text/javascript" src="../../js/mui.min.js" ></script>
@@ -81,6 +91,73 @@
 				}
 			}, {filter:"none"} );
 		})
+		var bUpdated=false;var gentry=null; //用于兼容可能提前注入导致DOM未解析完更新的问题
+		var bts=[{title:"一键删除",style:"destructive"}];
+		mui("div").on("tap",".over_mp3",function(e){
+			e.stopPropagation();
+//			mui('#popover').popover('toggle')
+			plus.nativeUI.actionSheet({title:"本地录音列表",cancel:"取消",buttons:bts},
+				function(e){
+					if(e.index>0){
+						if(e.index==1){
+							var btnArray = ['否', '是'];
+							mui.confirm('你确定要删除此录音吗？', '提示', btnArray, function(e) {
+			                    if (e.index == 1) {
+			                    	gentry.removeRecursively(function(){
+										// Success
+										gentry.removeRecursively(function(){
+											mui.toast('操作成功！');
+										}, function(e){
+											mui.toast('操作失败：'+e.message);
+										});
+									}, function(e){
+										mui.toast('操作失败：'+e.message);
+									});
+			                        mui.toast("删除成功");
+			                    }
+			                })
+						}else{
+							mui.toast("选择了"+bts[e.index-1].title);
+						}
+					}
+				}
+			);
+		})
+		plus.io.resolveLocalFileSystemURL('_doc/', function(entry){
+			entry.getDirectory('audio', {create:true}, function(dir){
+				gentry = dir;
+				updateHistory();
+			}, function(e){
+				mui.toast('Get directory "audio" failed: '+e.message);
+			});
+		}, function(e){
+			mui.toast('Resolve "_doc/" failed: '+e.message);
+		} );
+		function updateHistory(){
+			if(bUpdated||!gentry||!document.body){//兼容可能提前注入导致DOM未解析完更新的问题
+				return;
+			}
+		  	var reader = gentry.createReader();
+		  	reader.readEntries(function(entries){
+		  		for(var i in entries){
+		  			if(entries[i].isFile){
+		  				createItem(entries[i]);
+		  			}
+		  		}
+		  	}, function(e){
+		  		mui.toast('读取录音列表失败：'+e.message);
+		  	});
+			bUpdated = true;
+		}
+		function createItem( entry ) {
+			var das=null;
+			entry.getMetadata(function(metadata){
+				var da=new Date( metadata.modificationTime)
+				das= da.toLocaleDateString()+" "+da.toLocaleTimeString();
+				bts.push({title:entry.name+"--("+das+")"});
+				$(".mui-table-view").append('<li class="mui-table-view-cell"><div><a href="#">'+entry.name+'<span></span></a></div><div class="times">'+das+'</div></li>')
+			});
+		}
 	})
 	
 </script>
