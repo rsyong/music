@@ -107,13 +107,14 @@
 										// Success
 										gentry.removeRecursively(function(){
 											mui.toast('操作成功！');
+											location.reload(); 
 										}, function(e){
-											mui.toast('操作失败：'+e.message);
+											mui.toast('操作成功！');
+											location.reload(); 
 										});
 									}, function(e){
 										mui.toast('操作失败：'+e.message);
 									});
-			                        mui.toast("删除成功");
 			                    }
 			                })
 						}else{
@@ -153,12 +154,23 @@
 			var das=null;
 			entry.getMetadata(function(metadata){
 				var da=new Date( metadata.modificationTime)
-				das= da.toLocaleDateString()+" "+da.toLocaleTimeString();
+				das= da.toLocaleDateString().replace(/\//g,"-")+" "+da.toLocaleTimeString();
 				bts.push({title:entry.name+"--("+das+")"});
 				$(".mui-table-view").append('<li class="mui-table-view-cell"><div><a href="#">'+entry.name+'<span></span></a></div><div class="times">'+das+'</div></li>')
 			});
 		}
+		mui("header").on("tap",".mui-action-back",function(e){
+			e.stopPropagation();
+			mui.back();
+			 var list = plus.webview.currentWebview().opener();
+			 //触发父页面的自定义事件(refresh),从而进行刷新
+			  mui.fire(list, 'refresh2');
+			  //返回true,继续页面关闭逻辑
+			return true;
+		})
 	})
-	
+	window.addEventListener('refresh', function(e){//执行刷新
+	  	location.reload(); 
+	});
 </script>
 </html>

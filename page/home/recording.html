@@ -120,6 +120,11 @@
 	                        mui.toast("保存成功");
 	                        recorder.stop();
 	                        mui.back();
+							 var list = plus.webview.currentWebview().opener();
+							 //触发父页面的自定义事件(refresh),从而进行刷新
+							  mui.fire(list, 'refresh');
+							  //返回true,继续页面关闭逻辑
+							return true;
 	                    }
 	                })
 				}
@@ -133,17 +138,20 @@
 				var btnArray = ['否', '是'];
                 mui.confirm('你确定要删除此录音吗？', '提示', btnArray, function(e) {
                     if (e.index == 1) {
-                    	gentry.removeRecursively(function(){
-							// Success
-							mui.toast('操作成功！');
-						}, function(e){
-							mui.toast('操作失败：'+e.message);
-						});
                         mui.toast("删除成功");
                         obj.init();
                     }
                 })
 			}
+		})
+		mui("header").on("tap",".mui-action-back",function(e){
+			e.stopPropagation();
+			mui.back();
+			 var list = plus.webview.currentWebview().opener();
+			 //触发父页面的自定义事件(refresh),从而进行刷新
+			  mui.fire(list, 'refresh');
+			  //返回true,继续页面关闭逻辑
+			return true;
 		})
 	})
 </script>
