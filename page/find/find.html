@@ -84,8 +84,8 @@
 					mp3.toPlay();
 				}
 				$("#toPlay").attr("title","false");
-				$("#toPlay").hide(100,function(){
-					$("#toPlay").show(250,function(){
+				$("#toPlay").hide(0,function(){
+					$("#toPlay").show(0,function(){
 					$("#toPlay").attr("src","../../image/zanting.png")
 				})
 				});
@@ -95,8 +95,8 @@
 				player.pause();
 				ispaly=true;
 				$("#toPlay").attr("title","true");
-				$("#toPlay").hide(100,function(){
-					$("#toPlay").show(250,function(){
+				$("#toPlay").hide(0,function(){
+					$("#toPlay").show(0,function(){
 					$("#toPlay").attr("src","../../image/plays.png")
 				})
 				});

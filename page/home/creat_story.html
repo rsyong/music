@@ -54,9 +54,16 @@
 					<div class="add loca_mp4"><img src="../../image/tianjia.png" class="width-100"/></div>
 					<div class="color-hui" style="position: relative;top: 10px;">添加图片</div>
 				</div>
-				<div class="flex align-center">
+				<div class="flex align-center add2">
 					<div class="add over_mp3"><img src="../../image/tianjia.png" class="width-100"/></div>
-					<div class="color-hui" style="position: relative;top: 10px;">已录录音</div>
+					<div class="color-hui" style="position: relative;top: 10px;">添加录音</div>
+				</div>
+				<div class="flex align-center add3" style="display: none;">
+					<div class="flex align-center" style="justify-content: flex-end;">
+						<span style="position: relative;top: 2.5vw;margin-right: 8px;color: #A2A1A1;">5″</span>
+						<img src="../../image/group.png" style="width: 50%;position: relative;top: 2.5vw;"/>
+						<img src="../../image/×.png" class="coloss" style="width: 8%;position: relative;top: -1vw;margin-left: 6px;"/>
+					</div>
 				</div>
 			</div>
 			<div class="flex">
@@ -96,6 +103,8 @@
 		mui("div").on("tap",".over_mp3",function(e){
 			e.stopPropagation();
 //			mui('#popover').popover('toggle')
+			plus.webview.create("recording.html","recording").show('slide-in-right', 200);
+			return;
 			plus.nativeUI.actionSheet({title:"本地录音列表",cancel:"取消",buttons:bts},
 				function(e){
 					if(e.index>0){
@@ -161,16 +170,24 @@
 		}
 		mui("header").on("tap",".mui-action-back",function(e){
 			e.stopPropagation();
-			mui.back();
+			
 			 var list = plus.webview.currentWebview().opener();
 			 //触发父页面的自定义事件(refresh),从而进行刷新
 			  mui.fire(list, 'refresh2');
 			  //返回true,继续页面关闭逻辑
+			  mui.back();
 			return true;
+		})
+		mui("div").on("tap",".coloss",function(e){
+			e.stopPropagation();
+			$(".add2").show();
+			$(".add3").hide();
 		})
 	})
 	window.addEventListener('refresh', function(e){//执行刷新
-	  	location.reload(); 
+//	  	location.reload(); 
+		$(".add2").hide();
+		$(".add3").show();
 	});
 </script>
 </html>
