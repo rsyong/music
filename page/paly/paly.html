@@ -77,9 +77,9 @@
 	function onPlusReady(){
 		//歌单
 		var mp3List=[
-			{title:'粉红色的回忆',url:'../../mp3/fhsdhy.mp3',name:'王宝强、刘昊然、肖央、潘粤明、小沈阳、张子枫'},
-			{title:'该',url:'../../mp3/gai.mp3',name:'曲肖冰'},
-			{title:'在心里从此永远有个你',url:'../../mp3/zxliccygn.mp3',name:'办桌二人组'},
+			{title:'Psycho',url:'../../mp3/Russ - Psycho.mp3',name:'pt.2'},
+			{title:'爱了很久的朋友',url:'../../mp3/friend.mp3',name:'王多多'},
+			{title:'残酷月光',url:'../../mp3/yuegang.mp3',name:'林宥嘉'},
 		];
 		//记住此时播放在哪
 		var page=localStorage.page || 0;
@@ -185,6 +185,7 @@
 		function formatSeconds(value) {
 	        var secondTime = parseInt(value);// 秒
 	        var minuteTime = 0;// 分
+	        var result=null;
 	        if(secondTime > 60) {//如果秒数大于60，将秒数转换成整数
 	            minuteTime = parseInt(secondTime / 60);
 	            secondTime = parseInt(secondTime % 60);
